@@ -80,7 +80,7 @@
     margin:4px 0 22px;
   }
   .logo span{color:var(--orange);}
-  .logo-badge{width:100%;max-width:260px;margin:4px auto 14px;display:block;}
+  .logo-badge{width:100%;max-width:170px;margin:4px auto 14px;display:block;}
   .logo-badge svg{width:100%;height:auto;display:block;filter:drop-shadow(0 8px 18px rgba(69,38,15,.28));}
   .lt{font-family:'Luckiest Guy','Arial Black',Impact,sans-serif;fill:#FFFFFF;stroke:#45260F;stroke-width:5;paint-order:stroke;stroke-linejoin:round;}
   .lt2{font-family:'Luckiest Guy','Arial Black',Impact,sans-serif;fill:#FFE7B0;stroke:#45260F;stroke-width:3;paint-order:stroke;stroke-linejoin:round;}
@@ -401,7 +401,7 @@
 <body class="texture">
 
   <!-- BARRA DE URGÊNCIA -->
-  <div class="urg-bar">🌽 OFERTA DE SÃO JOÃO • De <b>R$97</b> por apenas <b>R$19,90</b> • acesso vitalício</div>
+  <div class="urg-bar">⏳ Essa oferta sai do ar hoje, <b id="data-hoje"></b></div>
 
   <!-- BANDEIRINHAS -->
   <svg class="bunting" viewBox="0 0 680 46" preserveAspectRatio="none" aria-hidden="true">
@@ -563,9 +563,7 @@
           <p>"Achei que ia ter gosto de dieta, mas é igualzinho ao tradicional. Minha família nem percebeu que era saudável."</p>
           <div class="depo-autor"><div class="avatar">A</div><div><b>Ana P.</b><small>Cliente verificada</small></div></div>
         </div>
-      </div>
-      <p class="cta-sub" style="margin-top:16px">Substitua por depoimentos reais dos seus clientes (com autorização).</p>
-    </div>
+      </div>    </div>
   </section>
 
   <!-- OFERTA -->
@@ -677,6 +675,13 @@
       el.textContent=h+':'+m+':'+s;
     }
     tick();setInterval(tick,1000);
+  })();
+  (function(){
+    var el=document.getElementById('data-hoje');
+    if(el){
+      var hoje=new Date();
+      el.textContent=hoje.toLocaleDateString('pt-BR',{day:'2-digit',month:'long'});
+    }
   })();
 </script>
 </body>
